@@ -29,4 +29,10 @@ main{
     right: 35%;
     left: 35%;
 }
+#library>div{
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+    background-color: yellow;
+}
 
