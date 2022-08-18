@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+#newBookBtn{
+    height: fit-content;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+}
