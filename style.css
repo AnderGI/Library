@@ -12,3 +12,8 @@ body{
     width: fit-content;
     padding: 0.5rem 1rem;
 }
+#bookDisplay{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

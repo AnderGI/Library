@@ -16,7 +16,8 @@ function addBookToLibrary(){
 }
 
 function displayBooks(){
-    bookDisplayEl.textContent += myLibrary[myLibrary.length-1]
+    bookDisplayEl.innerHTML += 
+    `<p>${myLibrary[myLibrary.length-1]}</p>`
 }
 
 function Book(title, author, pages, read){
