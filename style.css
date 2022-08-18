@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+ 
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    width: 100vw;
+    height: 100vh;
+}
+main{
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+#library{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+#library>#popup{
+    max-width: 50ch;
+    padding: 1rem;
+    position: absolute;
+    top: 33.33%;
+    bottom: 33.33%;
+    right: 35%;
+    left: 35%;
+}
+
