@@ -89,8 +89,11 @@ main>div{
     height: fit-content;
     background-color: red;
 }
-#readOrNotBtn.read{
+#readOrNotBtn.green{
     background-color: lightgreen;
+}
+#readOrNotBtn.red{
+    background-color: red;
 }
 footer{
     background-color: var(--footer);

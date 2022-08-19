@@ -64,13 +64,8 @@ Book.prototype.addBook = function (){
     
         addBookToLibrary()
         readOrNot(bookCard, readOrNotBtn)
-        readOrNotBtn.addEventListener('click', ()=>{
-            readOrNotBtn.classList.toggle('read')
-            bookCard.classList.toggle('read')
-            
-        })
 
-
+    
         //DELETE THE NEWBOOK OBJECT WHEN THE DELETE BUTTON IS CLICKED
         deleteBtn.addEventListener('click', ()=>{
             bookCard.remove() 
@@ -109,9 +104,15 @@ function readOrNot(item, btn){
         border: 1px solid lightgreen;
         border-left: 6px solid lightgreen;
         `
+        btn.style.cssText =`
+        background-color: lightgreen;
+        `
         console.log('you have read it')
         btn.innerText = 'You have READ IT'
     } else{
         console.log('you have no read it')
     }
+
 }
+
+
