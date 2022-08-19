@@ -43,15 +43,12 @@ Book.prototype.addBook = function (){
         bookCard.append(cardTitle)
 
         let cardButton = document.createElement('p');
-/*
-            let readBtn = document.createElement('button')
-            editBtn.setAttribute("id","editBtn")
-                let editImg = document.createElement('img')
-                editImg.setAttribute("id","editImg")
-                editImg.setAttribute("src","./Google Fonts/edit_FILL0_wght400_GRAD0_opsz48.svg")
-            editBtn.append(editImg)
-            cardButton.append(editBtn)
-*/
+
+            let readOrNotBtn = document.createElement('button')
+            readOrNotBtn.setAttribute("id","readOrNotBtn")
+            readOrNotBtn.innerText='You have NOT READ IT'
+            cardButton.append(readOrNotBtn)
+
 
             let deleteBtn = document.createElement('button')
             deleteBtn.setAttribute("id","deleteBtn")
@@ -66,7 +63,7 @@ Book.prototype.addBook = function (){
         libraryEl.append(bookCard)
     
         addBookToLibrary()
-        readOrNot(bookCard)
+        readOrNot(bookCard, readOrNotBtn)
 
         //DELETE THE NEWBOOK OBJECT WHEN THE DELETE BUTTON IS CLICKED
         deleteBtn.addEventListener('click', ()=>{
@@ -96,18 +93,16 @@ sendPopUp.addEventListener('click',(e)=>{
 
 
 //EDIT EVERY NewBook taking into account if it is read or not
-function readOrNot(item){
+function readOrNot(item, btn){
     const bookCheckbox = document.getElementById('readCheckbox')
     if(bookCheckbox.checked === true){
-        /*bookCard.style.cssText = `
-        border: 1px solid red;
-        border-left: 6px solid red;
-        `*/
+        item.style.cssText = `
+        border: 1px solid lightgreen;
+        border-left: 6px solid lightgreen;
+        `
         console.log('you have read it')
+        btn.innerText = 'You have READ IT'
     } else{
         console.log('you have no read it')
-        item.style.cssText = `
-        border: 1px solid red;
-        border-left: 6px solid red;`
     }
 }
