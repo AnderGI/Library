@@ -3,6 +3,7 @@ const sendPopUp= document.getElementById('submitPopUp')
 const addABook = document.getElementById('addBook')
 const libraryEl = document.getElementById('library')
 
+let myLibrary = []
 //MAKE THE POPUP APPEAR
 addABook.addEventListener('click', ()=>{
     popupEL.showModal()
@@ -52,11 +53,12 @@ Book.prototype.addBook = function (){
             cardButton.append(deleteBtn)
 
         bookCard.append(cardButton) 
-        
+
         libraryEl.append(bookCard)
     
-
-
+        myLibrary.push(NewBook)
+        console.log(NewBook)
+        console.log(myLibrary)
         //DELETE THE NEWBOOK OBJECT WHEN THE DELETE BUTTON IS CLICKED
         deleteBtn.addEventListener('click', ()=>{
             bookCard.remove() 
@@ -91,7 +93,7 @@ function displayBook(x,y,z){
 
 sendPopUp.addEventListener('click',(e)=>{
     e.preventDefault()
-  
+    
     displayBook(title.value,author.value,pages.value)
     NewBook.addBook(title.value,author.value,pages.value)
     /*
