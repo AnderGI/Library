@@ -2,37 +2,74 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --header: #FFA351FF;
+    --main:rgb(255, 190, 123);
+    --footer:#EED971FF;
 }
 body{
- 
     display: grid;
     grid-template-rows: 1fr 6fr 1fr;
     width: 100vw;
     height: 100vh;
+    position: relative;
 }
-main{
-    display: grid;
-    grid-template-rows: 1fr 5fr;
+header{
+    background-color: var(--header);
+ }
+ main{
+    background-color: var(--main);
+     display: grid;
+     grid-template-rows: 1fr 5fr;
+ }
+#popup{
+    max-width: 50ch;
+    padding: 1rem;
+    position: absolute;
+    top: 30vh;
+    left: 40vw;
+}
+#popup::backdrop{
+    background:linear-gradient(45deg, rgba(64, 224, 208,0.5), rgba(144, 238, 144,0.5) 70.71%);
+}
+main>div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#addBook{
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    border: none;
+    background-color: var(--main);
+    transition: background-color 0.2s ease;
+}
+#addBook:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.05);
 }
 #library{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
-}
-#library>#popup{
-    max-width: 50ch;
     padding: 1rem;
-    position: absolute;
-    top: 33.33%;
-    bottom: 33.33%;
-    right: 35%;
-    left: 35%;
 }
+
 #library>div{
+    display: grid;
+    gap: 0.25rem;
     width: fit-content;
     height: fit-content;
     padding: 1rem;
-    background-color: yellow;
+    background-color: rgba(0,0,0,0.05);
+    color: black;
+    font-size: 1rem;
+    border: 1px solid lightgreen;
+    border-left: 6px solid lightgreen;
+    border-radius: 0px 20px 0px 0px;
 }
-
+footer{
+    background-color: var(--footer);
+}

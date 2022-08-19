@@ -21,22 +21,11 @@ Book.prototype.displayBookInfo=function(){
     return `${this.title} by ${this.author} has ${this.pages} pages.`
 }
 Book.prototype.addBook = function (){
-
         let bookCard = document.createElement('div');
         let cardTitle = document.createElement('p');
-        cardTitle.textContent = `${this.title}`
-        bookCard.append(cardTitle)
-    
-        let cardAuthor = document.createElement('p')
-        cardAuthor.textContent = `${this.author}`
-        bookCard.append(cardAuthor) 
-    
-        let cardPages = document.createElement('p')
-        cardPages.textContent = `${this.pages} pages.`
-        bookCard.append(cardPages) 
-    
+        cardTitle.textContent = `${this.title} by ${this.author} has ${this.pages} pages.`
+        bookCard.append(cardTitle)    
         libraryEl.append(bookCard)
-
     
 }
 
@@ -56,11 +45,13 @@ function displayBook(x,y,z){
 
 sendPopUp.addEventListener('click',(e)=>{
     e.preventDefault()
+  
     displayBook(title.value,author.value,pages.value)
     NewBook.addBook(title.value,author.value,pages.value)
     title.value = ""
     author.value = ""
     pages.value = ""
+
 
 })
 
