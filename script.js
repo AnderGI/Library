@@ -64,6 +64,12 @@ Book.prototype.addBook = function (){
     
         addBookToLibrary()
         readOrNot(bookCard, readOrNotBtn)
+        readOrNotBtn.addEventListener('click', ()=>{
+            readOrNotBtn.classList.toggle('read')
+            bookCard.classList.toggle('read')
+            
+        })
+
 
         //DELETE THE NEWBOOK OBJECT WHEN THE DELETE BUTTON IS CLICKED
         deleteBtn.addEventListener('click', ()=>{
@@ -93,8 +99,11 @@ sendPopUp.addEventListener('click',(e)=>{
 
 
 //EDIT EVERY NewBook taking into account if it is read or not
+const bookCheckbox = document.getElementById('readCheckbox')
+
+
 function readOrNot(item, btn){
-    const bookCheckbox = document.getElementById('readCheckbox')
+   
     if(bookCheckbox.checked === true){
         item.style.cssText = `
         border: 1px solid lightgreen;
