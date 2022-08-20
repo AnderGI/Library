@@ -43,9 +43,78 @@ header>h1{
     background-color: var(--opaqueBlack)
 }
 
+/*POPUPS*/
 
+#popup, #logInDialog{
+    max-width: 80ch;
+    padding: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+    background-color: var(--main);
+    
+}
+#popup::backdrop, #logInDialog::backdrop{
+    background:linear-gradient(45deg, rgba(64, 224, 208,0.5), rgba(144, 238, 144,0.5) 70.71%);
+}
 
-
+form{
+    display: flex;
+    flex-direction: column;
+}
+form>legend{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.label{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    gap: 0.75em;
+}
+.label>input{
+    background-color: var(--footer);
+    border: none;
+    padding: 0.5em;
+    font-size: 1em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.label[for="readCheckbox"]{
+    font-size: 1em;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.label[for="readCheckbox"]>input[type="checkbox"]{
+    width: 2em;
+    height: 2em;
+}
+#closeLogInBtn, #submitPopUp{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: var(--main);
+    border: none;
+    transform: background-color 0.2s ease;
+}
+#closeLogInBtn:hover, #submitPopUp:hover{
+    cursor: pointer;
+    background-color: var(--opaqueBlack);
+}
 
 
  /*MAIN*/
@@ -54,15 +123,6 @@ header>h1{
      display: grid;
      grid-template-rows: 1fr 7fr;
  }
-#popup, #logInDialog{
-    max-width: 50ch;
-    padding: 1em;
-    position: absolute;
-   
-}
-#popup::backdrop, #logInDialog::backdrop{
-    background:linear-gradient(45deg, rgba(64, 224, 208,0.5), rgba(144, 238, 144,0.5) 70.71%);
-}
 main>div{
     width: 100%;
     display: flex;
@@ -131,7 +191,6 @@ main>div{
     font-size: 0.75rem;
     font-weight: 700;
 }
-
 
 /*FOOTER*/
 footer{
