@@ -5,6 +5,7 @@
     --header: #FFA351FF;
     --main:rgb(255, 190, 123);
     --footer:#EED971FF;
+    --opaqueBlack:rgba(0,0,0,0.05);
 }
 body{
     display: grid;
@@ -13,22 +14,54 @@ body{
     height: 100vh;
     position: relative;
 }
+/*HEADER*/
 header{
     background-color: var(--header);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0em 0.5em;
+    align-items: center;
  }
+    /*Header title*/
+header>h1{
+    font-size: 2rem;
+    text-transform: lowercase;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+#logInBtn{
+    padding: 0.25em 0.75em;
+    font-size: 1.25rem;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: none;
+    background-color: var(--header);
+    transition: background-color 0.2s ease;
+}
+#logInBtn:hover{
+    cursor: pointer;
+    background-color: var(--opaqueBlack)
+}
+
+
+
+
+
+
+ /*MAIN*/
  main{
     background-color: var(--main);
      display: grid;
-     grid-template-rows: 1fr 5fr;
+     grid-template-rows: 1fr 7fr;
  }
-#popup{
+#popup, #logInDialog{
     max-width: 50ch;
-    padding: 1rem;
+    padding: 1em;
     position: absolute;
     top: 30vh;
     left: 40vw;
 }
-#popup::backdrop{
+#popup::backdrop, #logInDialog::backdrop{
     background:linear-gradient(45deg, rgba(64, 224, 208,0.5), rgba(144, 238, 144,0.5) 70.71%);
 }
 main>div{
@@ -38,12 +71,13 @@ main>div{
     align-items: center;
 }
 #addBook{
-    padding: 1rem 2rem;
-    font-size: 2rem;
+    padding: 0.5em 1em;
+    font-size: 1.25rem;
     font-weight: 700;
     border: none;
     background-color: var(--main);
     transition: background-color 0.2s ease;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 #addBook:hover{
     cursor: pointer;
@@ -53,48 +87,60 @@ main>div{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 1em;
+    padding: 0.5em;
 }
 
 #library>div{
     display: grid;
     grid-template-rows: repeat(auto-fit,1fr);
-    gap: 0.5rem;
+    gap: 0.5em;
     width: fit-content;
     height: fit-content;
-    padding: 1rem;
+    padding: 0.75em;
     background-color: rgba(0,0,0,0.05);
     color: black;
-    font-size: 1rem;
+    font-size: 0.75rem;
     border: 1px solid red;
     border-left: 6px solid red;
     border-radius: 0px 20px 0px 0px;
+    box-shadow: 0px 2px 2px 2px lightcoral;
 }
-#library>div.read{
-    border: 1px solid lightgreen;
-    border-left: 6px solid lightgreen;
-}
+
 #library>div>p + p{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+#deleteBtn{
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightcoral;
 }
 #deleteImg{
     width: clamp(2vmin,4vmin,6vmin);
     height: clamp(2vmin,4vmin,6vmin);
 }
 #readOrNotBtn{
-    padding: 0.5rem 1rem;
+    padding: 0.5em ;
     height: fit-content;
     background-color: red;
+    border: red;
+    font-size: 0.75rem;
+    font-weight: 700;
 }
-#readOrNotBtn.green{
-    background-color: lightgreen;
-}
-#readOrNotBtn.red{
-    background-color: red;
-}
+
+
+/*FOOTER*/
 footer{
     background-color: var(--footer);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 600;
 }

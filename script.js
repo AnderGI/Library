@@ -3,6 +3,17 @@ const sendPopUp= document.getElementById('submitPopUp')
 const addABook = document.getElementById('addBook')
 const libraryEl = document.getElementById('library')
 
+//WHEN THE USER CLICKS LOG IN BUTTON A LOG IN DIALOG SHOULD APPEAR
+const logInBtn = document.getElementById('logInBtn')
+const logInDialog = document.getElementById('logInDialog')
+const closeLogInBtn = document.getElementById('closeLogInBtn')
+logInBtn.addEventListener('click',()=>{
+   logInDialog.showModal()
+})
+closeLogInBtn.addEventListener('click',()=>{
+    logInDialog.close()
+})
+
 //SAVE NewBook object in myLIbrary array of objects
 let myLibrary = []
 function addBookToLibrary(){
@@ -63,7 +74,7 @@ Book.prototype.addBook = function (){
         libraryEl.append(bookCard)
     
         addBookToLibrary()
-        readOrNot(bookCard, readOrNotBtn)
+        readOrNot(bookCard, readOrNotBtn, deleteBtn)
 
     
         //DELETE THE NEWBOOK OBJECT WHEN THE DELETE BUTTON IS CLICKED
@@ -97,22 +108,28 @@ sendPopUp.addEventListener('click',(e)=>{
 const bookCheckbox = document.getElementById('readCheckbox')
 
 
-function readOrNot(item, btn){
+function readOrNot(item, ReadBtn, DeleteBtn){
    
     if(bookCheckbox.checked === true){
         item.style.cssText = `
-        border: 1px solid lightgreen;
-        border-left: 6px solid lightgreen;
+        border: 1px solid green;
+        border-left: 6px solid green;
+        box-shadow:0px 2px 2px 2px lightgreen;
         `
-        btn.style.cssText =`
+        ReadBtn.style.cssText =`
+        background-color: green;
+        border:lightgreen;
+        `
+        DeleteBtn.style.cssText=`
         background-color: lightgreen;
         `
         console.log('you have read it')
-        btn.innerText = 'You have READ IT'
+        ReadBtn.innerText = 'You have READ IT'
     } else{
         console.log('you have no read it')
     }
 
 }
+
 
 

@@ -9,8 +9,22 @@
 </head>
 <body>
     <header>
-        <h1>My Library</h1>
+        <h1>My Library.</h1>
+        <button id="logInBtn">Log In</button>
+        <dialog id="logInDialog">
+            <form action="#" method="dialog">
+               <legend>Log In</legend>
+               <br>
+               <br>
+                    <label for="userEmail">E-mail<span aria-label="required">*</span>:<input type="email" name="userEmail" id="userEmail"></label>
+                    <br>
+                    <label for="userPassword">Password<span aria-label="required">*</span>:<input type="password" name="userPassword" id="userPassword"></label>
+                    <br>
+                    <button type="submit" id="closeLogInBtn">Log In</button>
+             </form>
+         </dialog>
     </header>
+    
     <main>
         <div><button id="addBook">+ add a book</button></div>
         <section id="library">
@@ -30,7 +44,7 @@
                     <button type="submit" id="submitPopUp">Send</button>
                  </form>
              </dialog>
-             
+            
         </section>
 
     </main>
