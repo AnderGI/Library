@@ -58,8 +58,7 @@ header>h1{
     max-width: 50ch;
     padding: 1em;
     position: absolute;
-    top: 30vh;
-    left: 40vw;
+   
 }
 #popup::backdrop, #logInDialog::backdrop{
     background:linear-gradient(45deg, rgba(64, 224, 208,0.5), rgba(144, 238, 144,0.5) 70.71%);
