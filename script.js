@@ -53,13 +53,12 @@ Book.prototype.addBook = function (){
         cardTitle.textContent = `${this.title} by ${this.author} has ${this.pages} pages.`
         bookCard.append(cardTitle)
 
-        let cardButton = document.createElement('p');
+        /*let cardButton = document.createElement('p');*/
 
             let readOrNotBtn = document.createElement('button')
             readOrNotBtn.setAttribute("id","readOrNotBtn")
-            readOrNotBtn.innerText='You have NOT READ IT'
-            cardButton.append(readOrNotBtn)
-
+          /*  cardButton.append(readOrNotBtn)*/
+            bookCard.append(readOrNotBtn)
 
             let deleteBtn = document.createElement('button')
             deleteBtn.setAttribute("id","deleteBtn")
@@ -67,9 +66,9 @@ Book.prototype.addBook = function (){
                 deleteImg.setAttribute("id","deleteImg")
                 deleteImg.setAttribute("src","./Google Fonts/delete_FILL0_wght400_GRAD0_opsz48.svg")
             deleteBtn.append(deleteImg)
-            cardButton.append(deleteBtn)
-
-        bookCard.append(cardButton) 
+            /*cardButton.append(deleteBtn)*/
+    bookCard.append(deleteBtn)
+        /*bookCard.append(cardButton) */
 
         libraryEl.append(bookCard)
     
@@ -83,8 +82,12 @@ Book.prototype.addBook = function (){
             
         })
 
+        //TOGGLE COLOR AND TEXT CONTENT WHEN THE READ BUTTON IS CLICKED
 
-
+        readOrNotBtn.addEventListener('click',()=>{
+            readOrNotBtn.classList.toggle('read')
+            readOrNotBtn.classList.toggle('notRead')
+        })
 
 }
 
@@ -112,24 +115,38 @@ function readOrNot(item, ReadBtn, DeleteBtn){
    
     if(bookCheckbox.checked === true){
         item.style.cssText = `
-        border: 1px solid green;
-        border-left: 6px solid green;
-        box-shadow:0px 2px 2px 2px lightgreen;
+        border: 3px solid var(--header);
+        box-shadow:0px 2px 2px 2px lightcoral;
         `
         ReadBtn.style.cssText =`
         background-color: green;
-        border:lightgreen;
+        border:green;
         `
         DeleteBtn.style.cssText=`
-        background-color: lightgreen;
+        background-color: var(--header);
         `
-        console.log('you have read it')
+        
         ReadBtn.innerText = 'You have READ IT'
+
+
     } else{
-        console.log('you have no read it')
+        item.style.cssText = `
+        border: 3px solid var(--header);
+        box-shadow:0px 2px 2px 2px lightcoral;
+        `
+        ReadBtn.style.cssText =`
+        background-color: red;
+        border:red;
+        `
+        DeleteBtn.style.cssText=`
+        background-color: var(--header);
+        `
+        
+        ReadBtn.innerText = 'You have NOT READ IT'
     }
 
 }
+
 
 
 

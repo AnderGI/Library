@@ -157,27 +157,19 @@ main>div{
     width: fit-content;
     height: fit-content;
     padding: 0.75em;
-    background-color: rgba(0,0,0,0.05);
     color: black;
     font-size: 0.75rem;
-    border: 1px solid red;
-    border-left: 6px solid red;
-    border-radius: 0px 20px 0px 0px;
-    box-shadow: 0px 2px 2px 2px lightcoral;
+    border-radius: 20px;
+
 }
 
-#library>div>p + p{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+
 #deleteBtn{
     border: none;
-    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: lightcoral;
+
 }
 #deleteImg{
     width: clamp(2vmin,4vmin,6vmin);
@@ -186,11 +178,10 @@ main>div{
 #readOrNotBtn{
     padding: 0.5em ;
     height: fit-content;
-    background-color: red;
-    border: red;
     font-size: 0.75rem;
     font-weight: 700;
 }
+
 
 /*FOOTER*/
 footer{
