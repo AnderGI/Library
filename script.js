@@ -213,7 +213,6 @@ IT WILL ALSO BE ABLE TO TOGGLE
 
 
 
-
 //CREATE A NEW BOOK AND PASS THE INFO OF THE PUPUP TO THE Book construtor
 
     let NewBook = new Book ()
@@ -229,6 +228,16 @@ IT WILL ALSO BE ABLE TO TOGGLE
 
 
 
-
-
-
+/*
+//// esto va
+let array = [1,2,4,5,6,7]
+//UPDATE THE ID
+function updateIndex(arr,item){
+    array.forEach(item =>{
+        console.log(item, array.indexOf(item))
+    } )
+}
+updateIndex()
+array.splice(2,1)
+updateIndex()
+*/
