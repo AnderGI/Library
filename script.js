@@ -1,3 +1,5 @@
+let myLibrary = []
+
 
 //WHEN THE USER CLICKS LOG IN BUTTON A LOG IN DIALOG SHOULD APPEAR
 
@@ -160,7 +162,7 @@ IT WILL ALSO BE ABLE TO TOGGLE
                     myLibrary.push(NewBook);
                     console.log(myLibrary);
                     console.log(myLibrary.indexOf(NewBook));
-                    bookCard.setAttribute("id",`${myLibrary.indexOf(NewBook)}`);
+                    bookCard.id = myLibrary.indexOf(NewBook);
                     title.value= "";
                     author.value = "";
                     pages.value = "";
@@ -176,9 +178,9 @@ IT WILL ALSO BE ABLE TO TOGGLE
         //DELETE THE NEWBOOK OBJECT WHEN THE DELETE BUTTON IS CLICKED REMOVE BOOK FROM DOM AND ARRAY
                 deleteBtn.addEventListener('click', ()=>{
                     bookCard.remove(); 
-                    console.log(bookCard.getAttribute('id'));
-                    myLibrary.splice(bookCard.getAttribute('id'),1);
-                    console.log(myLibrary);
+                    myLibrary.splice(myLibrary.indexOf(NewBook),1);
+                    console.log(myLibrary.indexOf(NewBook));
+                    console.log(myLibrary)
                 });
 
 
@@ -212,18 +214,10 @@ IT WILL ALSO BE ABLE TO TOGGLE
 
 
 
-//SAVE NewBook object in myLIbrary array of objects
-
-    let myLibrary = []
-    let i = 0 //index for each book the index will be save in each div as an id
-
-
-
-
 //CREATE A NEW BOOK AND PASS THE INFO OF THE PUPUP TO THE Book construtor
 
     let NewBook = new Book ()
-    
+
     function displayBook(titl,auth,pag){ 
         NewBook = new Book (titl, auth, pag)
     }
