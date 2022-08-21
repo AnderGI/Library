@@ -161,8 +161,7 @@ IT WILL ALSO BE ABLE TO TOGGLE
                 function addBookToLibrary(){
                     myLibrary.push(NewBook);
                     console.log(myLibrary);
-                    console.log(myLibrary.indexOf(NewBook));
-                    bookCard.id = myLibrary.indexOf(NewBook);
+                    bookCard.id = myLibrary.indexOf(NewBook)
                     title.value= "";
                     author.value = "";
                     pages.value = "";
@@ -179,8 +178,7 @@ IT WILL ALSO BE ABLE TO TOGGLE
                 deleteBtn.addEventListener('click', ()=>{
                     bookCard.remove(); 
                     myLibrary.splice(myLibrary.indexOf(NewBook),1);
-                    console.log(myLibrary.indexOf(NewBook));
-                    console.log(myLibrary)
+                    console.log(myLibrary);
                 });
 
 
@@ -228,3 +226,18 @@ IT WILL ALSO BE ABLE TO TOGGLE
 
 
 
+
+
+/*
+//// esto va
+let array = [1,2,4,5,6,7]
+//UPDATE THE ID
+function updateIndex(arr,item){
+    array.forEach(item =>{
+        console.log(item, array.indexOf(item))
+    } )
+}
+updateIndex()
+array.splice(2,1)
+updateIndex()
+*/
