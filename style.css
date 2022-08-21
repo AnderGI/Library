@@ -14,6 +14,8 @@ body{
     height: 100vh;
     position: relative;
 }
+
+
 /*HEADER*/
 header{
     background-color: var(--header);
@@ -25,25 +27,29 @@ header{
     align-items: center;
  }
     /*Header title*/
-header>h1{
-    font-size: 2rem;
-    text-transform: lowercase;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-#logInBtn{
-    padding: 0.25em 0.75em;
-    font-size: 1.25rem;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    border: none;
-    background-color: var(--header);
-    transition: background-color 0.2s ease;
-}
-#logInBtn:hover{
-    cursor: pointer;
-    background-color: var(--opaqueBlack)
-}
+    header>h1{
+        font-size: 2rem;
+        text-transform: lowercase;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
 
-/*POPUPS*/
+    /*Log In Btn*/
+    #logInBtn{
+        padding: 0.25em 0.75em;
+        font-size: 1.25rem;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        border: none;
+        background-color: var(--header);
+        transition: background-color 0.2s ease;
+    }
+    #logInBtn:hover{
+        cursor: pointer;
+        background-color: var(--opaqueBlack)
+    }
+
+
+
+/*POPUPS  BOTH FOR ADDING THE BOOKS AND FOR LOGING IN*/
 
 #popup, #logInDialog{
     max-width: 80ch;
@@ -60,61 +66,66 @@ header>h1{
     background:linear-gradient(45deg, rgba(64, 224, 208,0.5), rgba(144, 238, 144,0.5) 70.71%);
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-}
-form>legend{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-.label{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    gap: 0.75em;
-}
-.label>input{
-    background-color: var(--footer);
-    border: none;
-    padding: 0.5em;
-    font-size: 1em;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.label[for="readCheckbox"]{
-    font-size: 1em;
-    font-style: italic;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.label[for="readCheckbox"]>input[type="checkbox"]{
-    width: 2em;
-    height: 2em;
-}
-#closeLogInBtn, #submitPopUp{
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    background-color: var(--main);
-    border: none;
-    transform: background-color 0.2s ease;
-}
-#closeLogInBtn:hover, #submitPopUp:hover{
-    cursor: pointer;
-    background-color: var(--opaqueBlack);
-}
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        form>legend{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+        /*This one affects the text of the label and the inputinside of it*/
+        .label{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            gap: 0.75em;
+        }
+        .label>input{
+            background-color: var(--footer);
+            border: none;
+            padding: 0.5em;
+            font-size: 1em;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        /*This one affects only the input type checkbox both its text and the display of the square*/
+        .label[for="readCheckbox"]{
+            font-size: 1em;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .label[for="readCheckbox"]>input[type="checkbox"]{
+            width: 2em;
+            height: 2em;
+        }
+
+        /*This ones are for both closing the log in popup and the add book popup*/
+        #closeLogInBtn, #submitPopUp{
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            background-color: var(--main);
+            border: none;
+            transform: background-color 0.2s ease;
+        }
+        #closeLogInBtn:hover, #submitPopUp:hover{
+            cursor: pointer;
+            background-color: var(--opaqueBlack);
+        }
+
 
 
  /*MAIN*/
@@ -123,6 +134,8 @@ form>legend{
      display: grid;
      grid-template-rows: 1fr 7fr;
  }
+
+/*The div with the add the book button*/
 main>div{
     width: 100%;
     display: flex;
@@ -142,6 +155,9 @@ main>div{
     cursor: pointer;
     background-color: rgba(0,0,0,0.05);
 }
+
+/*Library is the section tag inside the main tag where all the different books (they wiil be divs) will be
+stored once the add the bookbutton is clicked*/
 #library{
     display: flex;
     flex-direction: row;
@@ -149,38 +165,40 @@ main>div{
     gap: 1em;
     padding: 0.5em;
 }
+    /*The divs inside of it are books. One div === One book*/
+    #library>div{
+        display: grid;
+        grid-template-rows: repeat(auto-fit,1fr);
+        gap: 0.5em;
+        width: fit-content;
+        height: fit-content;
+        padding: 0.75em;
+        color: black;
+        font-size: 0.75rem;
+        border-radius: 20px;
 
-#library>div{
-    display: grid;
-    grid-template-rows: repeat(auto-fit,1fr);
-    gap: 0.5em;
-    width: fit-content;
-    height: fit-content;
-    padding: 0.75em;
-    color: black;
-    font-size: 0.75rem;
-    border-radius: 20px;
+    }
 
-}
+    /*Delete btn and its image inside of it */
+    #deleteBtn{
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
+    }
+    #deleteImg{
+        width: clamp(2vmin,4vmin,6vmin);
+        height: clamp(2vmin,4vmin,6vmin);
+    }
 
-#deleteBtn{
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-#deleteImg{
-    width: clamp(2vmin,4vmin,6vmin);
-    height: clamp(2vmin,4vmin,6vmin);
-}
-#readOrNotBtn{
-    padding: 0.5em ;
-    height: fit-content;
-    font-size: 0.75rem;
-    font-weight: 700;
-}
+    /*The red or green btn*/
+    #readOrNotBtn{
+        padding: 0.5em ;
+        height: fit-content;
+        font-size: 0.75rem;
+        font-weight: 700;
+    }
 
 
 /*FOOTER*/
