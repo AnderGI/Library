@@ -74,8 +74,23 @@ Book.prototype.addBook = function (){
         //TOGGLE COLOR AND TEXT CONTENT WHEN THE READ BUTTON IS CLICKED
 
         readOrNotBtn.addEventListener('click',()=>{
-            readOrNotBtn.classList.toggle('read')
-            readOrNotBtn.classList.toggle('notRead')
+            if(readOrNotBtn.getAttribute('class')==='notRead'){
+                console.log('red btn clicked')
+                readOrNotBtn.innerText = 'You have READ IT'
+                readOrNotBtn.style.cssText =`
+                background-color: green;
+                border:green;
+                `
+                readOrNotBtn.className = 'read'
+            } else if(readOrNotBtn.getAttribute('class')==='read'){
+                console.log('green btn clicked')
+                readOrNotBtn.innerText = 'You have NOT READ IT'
+                readOrNotBtn.style.cssText =`
+                background-color: red;
+                border:red;
+                `
+                readOrNotBtn.className = 'notRead'
+            }
         })
 
         //REMOVE BOOK FROM DOM AND ARRAY
@@ -93,6 +108,9 @@ function addBookToLibrary(){
     console.log(myLibrary)
     console.log(myLibrary.indexOf(NewBook))
     bookCard.setAttribute("id",`${myLibrary.indexOf(NewBook)}`)
+    title.value= ""
+    author.value = ""
+    pages.value = ""
 }
 }
 //SAVE NewBook object in myLIbrary array of objects
@@ -139,6 +157,7 @@ function readOrNot(item, ReadBtn, DeleteBtn){
         background-color: green;
         border:green;
         `
+        ReadBtn.setAttribute('class', 'read')
         DeleteBtn.style.cssText=`
         background-color: var(--header);
         `
@@ -155,6 +174,7 @@ function readOrNot(item, ReadBtn, DeleteBtn){
         background-color: red;
         border:red;
         `
+        ReadBtn.setAttribute('class', 'notRead')
         DeleteBtn.style.cssText=`
         background-color: var(--header);
         `
