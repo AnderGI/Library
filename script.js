@@ -161,7 +161,7 @@ IT WILL ALSO BE ABLE TO TOGGLE
                 function addBookToLibrary(){
                     myLibrary.push(NewBook);
                     console.log(myLibrary);
-                    bookCard.id = myLibrary.indexOf(NewBook)
+                    bookCard.id = title.value
                     title.value= "";
                     author.value = "";
                     pages.value = "";
@@ -177,7 +177,9 @@ IT WILL ALSO BE ABLE TO TOGGLE
         //DELETE THE NEWBOOK OBJECT WHEN THE DELETE BUTTON IS CLICKED REMOVE BOOK FROM DOM AND ARRAY
                 deleteBtn.addEventListener('click', ()=>{
                     bookCard.remove(); 
-                    myLibrary.splice(myLibrary.indexOf(NewBook),1);
+                    myLibrary.splice(myLibrary.findIndex(object => {
+                        return object.title === bookCard.id;
+                      }),1);
                     console.log(myLibrary);
                 });
 
