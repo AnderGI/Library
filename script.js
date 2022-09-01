@@ -89,7 +89,15 @@ class Library{
         libraryEl.append(bookCard);
 }
 
+        //CHECKBOX
+        readStatus(){
+            if(checkbox.checked===true){
+                console.log('you have read ' + this.title )
+            }
+        }
 }
+
+let checkbox = document.getElementById('readCheckbox')
 
 
 
@@ -103,6 +111,7 @@ document.querySelector('#submitPopUp').addEventListener('click',()=>{
     book.addInfo()
     book.addBookToLibrary(book)
     book.addBook()
+    book.readStatus()
     
 })
 
