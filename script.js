@@ -64,7 +64,14 @@ class Library{
             cardTitle.textContent = `${this.title} by ${this.author} has ${this.pages} pages.`;
             bookCard.append(cardTitle);
 
-           
+            //Read status button
+
+
+            //Delete button
+            let deleteBtn = document.createElement('button')
+            deleteBtn.setAttribute('id', 'deleteBtn')
+            deleteBtn.textContent = 'Remove'
+            bookCard.append(deleteBtn)
 
         //Add div to library section
         const libraryEl = document.querySelector('#library')
@@ -73,8 +80,8 @@ class Library{
 
 }
 
-let book = new Library()
 
+let book = new Library()
 
 document.querySelector('#submitPopUp').addEventListener('click',()=>{
     book = new Library(title.value, author.value, pages.value)
