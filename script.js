@@ -77,11 +77,11 @@ class Library{
             
         //DELETE THE NEWBOOK OBJECT WHEN THE DELETE BUTTON IS CLICKED REMOVE BOOK FROM DOM AND ARRAY
         deleteBtn.addEventListener('click', ()=>{
-            bookCard.remove(); 
-            myLibrary.splice(myLibrary.findIndex(object => {
-                return object.title === bookCard.id;
-              }),1);
-            console.log(myLibrary);
+            bookCard.remove();
+            myLibrary.splice((myLibrary.findIndex(object=>{
+                return object.title === bookCard.id
+            })),1);
+            console.log(myLibrary)
         });
 
         //Add div to library section
