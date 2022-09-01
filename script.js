@@ -66,7 +66,9 @@ class Library{
             bookCard.append(cardTitle);
 
             //Read status button
-
+            let readOrNotBtn = document.createElement('button');
+            readOrNotBtn.setAttribute("id","readOrNotBtn");
+            bookCard.append(readOrNotBtn);
 
            //Delete button
             let deleteBtn = document.createElement('button')
