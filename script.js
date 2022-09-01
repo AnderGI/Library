@@ -68,15 +68,21 @@ class Library{
             //Read status button
 
 
-            //Delete button
+           //Delete button
+            let deleteBtn = document.createElement('button')
             deleteBtn.setAttribute('id', 'deleteBtn')
             deleteBtn.textContent = 'Remove'
             bookCard.append(deleteBtn)
 
-            deleteBtn.addEventListener('click', ()=>{
-                console.log('delete btn clicked')
-                
-            })
+            
+        //DELETE THE NEWBOOK OBJECT WHEN THE DELETE BUTTON IS CLICKED REMOVE BOOK FROM DOM AND ARRAY
+        deleteBtn.addEventListener('click', ()=>{
+            bookCard.remove(); 
+            myLibrary.splice(myLibrary.findIndex(object => {
+                return object.title === bookCard.id;
+              }),1);
+            console.log(myLibrary);
+        });
 
         //Add div to library section
         const libraryEl = document.querySelector('#library')
@@ -85,8 +91,7 @@ class Library{
 
 }
 
-//Delete button
-let deleteBtn = document.createElement('button')
+
 
 
 
