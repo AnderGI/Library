@@ -89,15 +89,47 @@ class Library{
         //Add div to library section
         const libraryEl = document.querySelector('#library')
         libraryEl.append(bookCard);
+
+
+        if(checkbox.checked === true){
+            bookCard.style.cssText = `
+            border: 3px solid var(--header);
+            box-shadow:0px 2px 2px 2px lightcoral;
+            `
+            readOrNotBtn.style.cssText =`
+            background-color: green;
+            border:green;
+            `
+            readOrNotBtn.setAttribute('class', 'read')
+            deleteBtn.style.cssText=`
+            background-color: var(--header);
+            `
+            
+         readOrNotBtn.innerText = 'You have READ IT'
+
+
+        } else{
+            bookCard.style.cssText = `
+            border: 3px solid var(--header);
+            box-shadow:0px 2px 2px 2px lightcoral;
+            `
+            readOrNotBtn.style.cssText =`
+            background-color: red;
+            border:red;
+            `
+            readOrNotBtn.setAttribute('class', 'notRead')
+            deleteBtn.style.cssText=`
+            background-color: var(--header);
+            `
+            
+            readOrNotBtn.innerText = 'You have NOT READ IT'
+        }
+
 }
 
-        //CHECKBOX
-        readStatus(){
-            if(checkbox.checked===true){
-                console.log('you have read ' + this.title )
-            }
-        }
+            
 }
+
 
 let checkbox = document.getElementById('readCheckbox')
 
@@ -113,7 +145,6 @@ document.querySelector('#submitPopUp').addEventListener('click',()=>{
     book.addInfo()
     book.addBookToLibrary(book)
     book.addBook()
-    book.readStatus()
     
 })
 
