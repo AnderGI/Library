@@ -58,6 +58,7 @@ class Library{
         //ADD THE BOOK DIV
         let bookCard = document.createElement('div');
         bookCard.setAttribute('class','bookCard');
+        bookCard.setAttribute('id',this.title)
 
             //DISPLAYS THE INFO OF THE BOOK
             let cardTitle = document.createElement('p');
@@ -68,10 +69,14 @@ class Library{
 
 
             //Delete button
-            let deleteBtn = document.createElement('button')
             deleteBtn.setAttribute('id', 'deleteBtn')
             deleteBtn.textContent = 'Remove'
             bookCard.append(deleteBtn)
+
+            deleteBtn.addEventListener('click', ()=>{
+                console.log('delete btn clicked')
+                
+            })
 
         //Add div to library section
         const libraryEl = document.querySelector('#library')
@@ -79,6 +84,11 @@ class Library{
 }
 
 }
+
+//Delete button
+let deleteBtn = document.createElement('button')
+
+
 
 
 let book = new Library()
