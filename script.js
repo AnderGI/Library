@@ -60,7 +60,7 @@ let myLibrary = []
 //This function wiil add DIFFERENT STYLING AND ATTRIBUTES TO EACH BOOK DIV IF THE CHECKBOX IS CHECKED OR NOT
 
     const bookCheckbox = document.getElementById('readCheckbox'); //input type checkbox
-
+    
     function readOrNot(item, ReadBtn, DeleteBtn){
     
         if(bookCheckbox.checked === true){
