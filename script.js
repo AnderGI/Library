@@ -151,9 +151,6 @@ class Library{
             
 }
 
-
-
-
 let book = new Library()
 
 document.querySelector('#submitPopUp').addEventListener('click',()=>{
@@ -163,5 +160,13 @@ document.querySelector('#submitPopUp').addEventListener('click',()=>{
     book.addBook()    
 })
 
+//SHow and close the log in modal
+    //show log in modal
+    document.getElementById('logInBtn').addEventListener('click',()=>{
+        document.getElementById('logInDialog').showModal()
+    })
 
-
+    //close modal
+    document.getElementById('closeLogInBtn').addEventListener('click',()=>{
+        document.getElementById('logInDialog').close()
+    })
