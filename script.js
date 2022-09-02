@@ -91,6 +91,7 @@ class Library{
         libraryEl.append(bookCard);
 
 
+        //Read status if is checked display a different style
         if(checkbox.checked === true){
             bookCard.style.cssText = `
             border: 3px solid var(--header);
@@ -124,31 +125,30 @@ class Library{
             
             readOrNotBtn.innerText = 'You have NOT READ IT'
         }
+    
 
-        /*TOGGLE COLOR AND TEXT CONTENT WHEN THE READ BUTTON IS CLICKED. 
-        For that if it has been READ it will have a READ CLASS. ONCE IT IS CLICKED its CLASS will CHANGE to NOTREAD
-        EACH CLASS will have DIFFERENT ATTRIBUTES AND STYLES
-        */
-        readOrNotBtn.addEventListener('click',()=>{
-            if(readOrNotBtn.getAttribute('class')==='notRead'){
-                console.log('red btn clicked')
-                readOrNotBtn.innerText = 'You have READ IT'
-                readOrNotBtn.style.cssText =`
-                background-color: green;
-                border:green;
-                `
-                readOrNotBtn.className = 'read'
-            } else if(readOrNotBtn.getAttribute('class')==='read'){
-                console.log('green btn clicked')
-                readOrNotBtn.innerText = 'You have NOT READ IT'
-                readOrNotBtn.style.cssText =`
-                background-color: red;
-                border:red;
-                `
-                readOrNotBtn.className = 'notRead'
-            }
-        });
+        //Toggle between read status
 
+            readOrNotBtn.addEventListener('click',()=>{
+                if(readOrNotBtn.getAttribute('class')==='notRead'){
+                    console.log('red btn clicked')
+                    readOrNotBtn.innerText = 'You have READ IT'
+                    readOrNotBtn.style.cssText =`
+                    background-color: green;
+                    border:green;
+                    `
+                    readOrNotBtn.className = 'read'
+                } else if(readOrNotBtn.getAttribute('class')==='read'){
+                    console.log('green btn clicked')
+                    readOrNotBtn.innerText = 'You have NOT READ IT'
+                    readOrNotBtn.style.cssText =`
+                    background-color: red;
+                    border:red;
+                    `
+                    readOrNotBtn.className = 'notRead'
+                }
+            });
+        
 
 }
 
@@ -158,11 +158,6 @@ class Library{
 
 let checkbox = document.getElementById('readCheckbox')
 
-
-
-
-
-
 let book = new Library()
 
 document.querySelector('#submitPopUp').addEventListener('click',()=>{
@@ -170,6 +165,7 @@ document.querySelector('#submitPopUp').addEventListener('click',()=>{
     book.addInfo()
     book.addBookToLibrary(book)
     book.addBook()
+    book.toogleReadStatus()
     
 })
 
