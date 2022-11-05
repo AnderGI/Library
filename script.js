@@ -154,10 +154,63 @@ class Library{
 let book = new Library()
 
 document.querySelector('#submitPopUp').addEventListener('click',()=>{
-    book = new Library(title.value, author.value, pages.value)
-    book.addInfo()
-    book.addBookToLibrary(book)
-    book.addBook()    
+    
+    //FORM VALIDATION AVOID EMPTY BOOKS
+//ADD BOOK FORM THE OTHER ONE IS JUST FOR STYLING PURPOSES
+const addBookForm = document.getElementById("addBookForm");
+
+
+    //function check author and title
+    //author should not have any number
+
+    function authorChecker(a){
+        /**From Stack Overflow
+         *Mandatory single name + optional additional names + spaces + special characters:
+        */
+        const validAuthor = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/
+        if(validAuthor.test(a.value)){
+            return true
+        }else{
+            return false
+        }
+    }
+    function titleChecker(t){
+        //Same as the author regex but it matches also numbers
+        const validTitle = /^[A-Za-z]+((\s)?((\'|\-|\.)?([A-Za-z0-9])+))*$/g
+        if(validTitle.test(t.value)){
+            return true
+        }else{
+            return false
+        }
+    }
+
+
+addBookForm.addEventListener('submit', (e)=>{
+    if(author.value === "" && pages.value==="" && title.value ===""){
+        alert('Please fill in the respecting areas(title, author and pages)')
+        e.preventDefault()
+    }else{
+        if(authorChecker(author) && titleChecker(title)){
+            book = new Library(title.value, author.value, pages.value)
+            book.addInfo()
+            book.addBookToLibrary(book)
+            book.addBook() 
+        }else{
+            if(!authorChecker(author)){
+                alert(`Fill the author area correctly: 
+                    -Spaces and special characthers are accepted
+                    -Numbers are not accepted
+                    -First word should be upper cased
+                    -Weird full of symbol names are NOT accepted ;)`)
+            }
+            if(!titleChecker(title)){
+                alert(`Fill the author area correctly: 
+                -Spaces, numbers and special characthers are accepted
+                -It must not end with an empty space`)
+            }
+        }
+    }
+})   
 })
 
 //SHow and close the log in modal
@@ -170,3 +223,4 @@ document.querySelector('#submitPopUp').addEventListener('click',()=>{
     document.getElementById('closeLogInBtn').addEventListener('click',()=>{
         document.getElementById('logInDialog').close()
     })
+
